@@ -1,0 +1,261 @@
+{
+  "definitions": {
+    "GiveNewSchemaNameHere": {
+      "properties": {
+        "base": {
+          "default": "EUR",
+          "type": "string"
+        },
+        "day": {
+          "items": {
+            "properties": {
+              "date": {
+                "default": "24.2.2017",
+                "type": "string"
+              },
+              "rates": {
+                "items": {
+                  "properties": {
+                    "item": {
+                      "properties": {
+                        "currency": {
+                          "default": "USD",
+                          "type": "string"
+                        },
+                        "rate": {
+                          "default": 1.672538,
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "disclaimer": {
+          "default": "TIBCO",
+          "type": "string"
+        },
+        "lastupdate": {
+          "default": "24.2.2017",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Last90days": {
+      "properties": {
+        "base": {
+          "default": "EUR",
+          "type": "string"
+        },
+        "day": {
+          "items": {
+            "properties": {
+              "date": {
+                "default": "24.2.2017",
+                "type": "string"
+              },
+              "rates": {
+                "items": {
+                  "properties": {
+                    "item": {
+                      "properties": {
+                        "currency": {
+                          "default": "USD",
+                          "type": "string"
+                        },
+                        "rate": {
+                          "default": 1.672538,
+                          "type": "number"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "disclaimer": {
+          "default": "TIBCO",
+          "type": "string"
+        },
+        "lastupdate": {
+          "default": "24.2.2017",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "LatestRates": {
+      "properties": {
+        "base": {
+          "default": "EUR",
+          "type": "string"
+        },
+        "disclaimer": {
+          "default": "TIBCO",
+          "type": "string"
+        },
+        "lastupdate": {
+          "default": "24.2.2017",
+          "type": "string"
+        },
+        "rates": {
+          "properties": {
+            "item": {
+              "properties": {
+                "currency": {
+                  "default": "USD",
+                  "type": "string"
+                },
+                "rate": {
+                  "default": 1.672538,
+                  "type": "number"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "RatesSchema": {
+      "properties": {
+        "base": {
+          "default": "EUR",
+          "type": "string"
+        },
+        "disclaimer": {
+          "default": "TIBCO",
+          "type": "string"
+        },
+        "lastupdate": {
+          "default": "24.2.2017",
+          "type": "string"
+        },
+        "rates": {
+          "items": {
+            "properties": {
+              "item": {
+                "properties": {
+                  "currency": {
+                    "default": "USD",
+                    "type": "string"
+                  },
+                  "rate": {
+                    "default": 1.672538,
+                    "type": "number"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "info": {
+    "description": "ECB Exchange Rate API",
+    "title": "ECBexchangeRates",
+    "version": "1.0.0",
+    "x-lastModified": "Feb 25, 2017 09:44AM PST"
+  },
+  "paths": {
+    "/last-90days": {
+      "get": {
+        "description": "load last 90days ECB exchange Rates",
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "examples": {
+              "application/json": {
+                "base": "EUR",
+                "day": [
+                  {
+                    "date": "24.2.2017",
+                    "rates": [
+                      {
+                        "item": {
+                          "currency": "USD",
+                          "rate": 1.672538
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "disclaimer": "TIBCO",
+                "lastupdate": "24.2.2017"
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/Last90days"
+            }
+          }
+        },
+        "tags": [
+          "ECB"
+        ]
+      }
+    },
+    "/latestrates": {
+      "get": {
+        "description": "load latest ECB exchange Rates",
+        "parameters": [],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "examples": {
+              "application/json": {
+                "base": "EUR",
+                "disclaimer": "TIBCO",
+                "lastupdate": "24.2.2017",
+                "rates": [
+                  {
+                    "item": {
+                      "currency": "USD",
+                      "rate": 1.672538
+                    }
+                  }
+                ]
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/RatesSchema"
+            }
+          }
+        },
+        "tags": [
+          "ECB"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0"
+}
