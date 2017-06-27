@@ -1,0 +1,67 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "BankingDataValidation",
+    "x-lastModified": "May 31, 2017 06:03AM PST",
+    "description": "Banking Data Validation Microservice"
+  },
+  "paths": {
+    "/ibancheck/{iban}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/IBANcheckSchema"
+            },
+            "examples": {
+              "application/json": {
+                "valid": "IBAN is valid"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "iban",
+            "in": "path",
+            "description": "IBAN String",
+            "required": true,
+            "type": "string",
+            "format": "",
+            "default": "DE89370400440532013000"
+          }
+        ],
+        "tags": [
+          "IBAN",
+          "banking"
+        ],
+        "description": "IBAN Validation Microservice"
+      }
+    }
+  },
+  "definitions": {
+    "GiveNewSchemaNameHere": {
+      "type": "object",
+      "properties": {
+        "valid": {
+          "type": "string",
+          "default": "IBAN is valid"
+        }
+      }
+    },
+    "IBANcheckSchema": {
+      "type": "object",
+      "properties": {
+        "valid": {
+          "type": "string",
+          "default": "IBAN is valid"
+        }
+      }
+    }
+  }
+}
