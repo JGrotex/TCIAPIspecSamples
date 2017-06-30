@@ -1,0 +1,64 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "MeterService",
+    "x-lastModified": "Jun 29, 2017 23:39PM PST",
+    "description": "Meter Data Service for Energy and Utilities"
+  },
+  "paths": {
+    "/meter/{sn}": {
+      "get": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success response",
+            "schema": {
+              "$ref": "#/definitions/GiveNewSchemaNameHere"
+            },
+            "examples": {
+              "application/json": {
+                "sn": "",
+                "type": ""
+              }
+            }
+          },
+          "204": {
+            "description": "meter serial number not found"
+          }
+        },
+        "parameters": [
+          {
+            "name": "sn",
+            "in": "path",
+            "description": "Meter Serial Number",
+            "required": true,
+            "type": "string",
+            "format": ""
+          }
+        ],
+        "description": "Get Meter Data",
+        "tags": [
+          "meter"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "GiveNewSchemaNameHere": {
+      "type": "object",
+      "properties": {
+        "sn": {
+          "type": "string",
+          "default": ""
+        },
+        "type": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    }
+  }
+}
